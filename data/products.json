@@ -1,0 +1,17 @@
+[
+  {"product_id": 101, "product_name": "Wireless Headphones", "category": "Electronics", "brand": "SoundMax", "price": 89.99, "stock_quantity": 250, "rating": 4.5, "launch_date": "2021-06-15"},
+  {"product_id": 102, "product_name": "Running Shoes", "category": "Footwear", "brand": "SpeedStep", "price": 120.00, "stock_quantity": 180, "rating": 4.2, "launch_date": "2022-03-01"},
+  {"product_id": 103, "product_name": "Coffee Maker", "category": "Kitchen", "brand": "BrewKing", "price": 55.50, "stock_quantity": 95, "rating": 4.7, "launch_date": "2020-11-10"},
+  {"product_id": 104, "product_name": "Yoga Mat", "category": "Sports", "brand": "FlexFit", "price": 35.00, "stock_quantity": 320, "rating": 4.3, "launch_date": "2021-01-20"},
+  {"product_id": 105, "product_name": "Bluetooth Speaker", "category": "Electronics", "brand": "SoundMax", "price": 65.00, "stock_quantity": null, "rating": 4.1, "launch_date": "2022-07-08"},
+  {"product_id": 106, "product_name": "Desk Lamp", "category": "Home Office", "brand": "BrightDesk", "price": 42.99, "stock_quantity": 150, "rating": 4.4, "launch_date": "2021-09-05"},
+  {"product_id": 107, "product_name": "Water Bottle", "category": "Sports", "brand": "HydroFlow", "price": 22.00, "stock_quantity": 500, "rating": 4.6, "launch_date": "2020-05-18"},
+  {"product_id": 108, "product_name": "Laptop Stand", "category": "Home Office", "brand": "ErgoDesk", "price": 48.00, "stock_quantity": 200, "rating": 4.8, "launch_date": "2022-10-12"},
+  {"product_id": 109, "product_name": "Smartwatch", "category": "Electronics", "brand": "TimeTech", "price": 199.99, "stock_quantity": 75, "rating": null, "launch_date": "2023-01-30"},
+  {"product_id": 110, "product_name": "Backpack", "category": "Accessories", "brand": "TrailPro", "price": 78.00, "stock_quantity": 140, "rating": 4.5, "launch_date": "2021-04-22"},
+  {"product_id": 111, "product_name": "Sunglasses", "category": "Accessories", "brand": "ClearView", "price": 55.00, "stock_quantity": 220, "rating": 4.0, "launch_date": "2022-06-01"},
+  {"product_id": 112, "product_name": "Resistance Bands", "category": "Sports", "brand": "FlexFit", "price": 18.99, "stock_quantity": 400, "rating": 4.4, "launch_date": "2020-08-15"},
+  {"product_id": 113, "product_name": "Air Purifier", "category": "Home Appliances", "brand": "CleanAir", "price": 149.00, "stock_quantity": 60, "rating": 4.6, "launch_date": "2021-11-28"},
+  {"product_id": 114, "product_name": "Mechanical Keyboard", "category": "Home Office", "brand": "TypeMaster", "price": 110.00, "stock_quantity": null, "rating": 4.7, "launch_date": "2022-02-14"},
+  {"product_id": 115, "product_name": "Protein Powder", "category": "Health", "brand": "NutriBoost", "price": 45.00, "stock_quantity": 300, "rating": 4.2, "launch_date": "2021-07-07"}
+]
