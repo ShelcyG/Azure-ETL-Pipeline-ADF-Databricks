@@ -1,0 +1,6 @@
+[
+  {"store_id": 1, "store_name": "Downtown NYC", "city": "New York", "country": "USA", "region": "East", "store_type": "Flagship", "open_date": "2018-03-10", "manager": "Tom Harris"},
+  {"store_id": 2, "store_name": "LA Westside", "city": "Los Angeles", "country": "USA", "region": "West", "store_type": "Standard", "open_date": "2019-07-15", "manager": "Sara Chen"},
+  {"store_id": 3, "store_name": "Chicago Central", "city": "Chicago", "country": "USA", "region": "Midwest", "store_type": "Standard", "open_date": "2020-01-20", "manager": "Mike Johnson"},
+  {"store_id": 4, "store_name": "Houston South", "city": "Houston", "country": "USA", "region": "South", "store_type": "Express", "open_date": "2021-05-01", "manager": "Laura Kim"}
+]
