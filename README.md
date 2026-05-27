@@ -53,3 +53,104 @@ The pipeline is built on an **ELT (Extract, Load, Transform)** framework, levera
 ---
 
 ## 📂 Repository Structure
+Azure-ETL-Pipeline-ADF-Databricks/
+│
+├── 📁 data/
+│   ├── customers.json          ← Customer profiles with membership tiers
+│   ├── products.json           ← Product catalog with categories & pricing
+│   ├── transactions.json       ← Sales transactions linking all entities
+│   └── stores.json             ← Store locations across US regions
+│
+├── 📁 notebooks/
+│   └── ETL_Notebook.ipynb      ← Full PySpark ETL logic (Bronze→Silver→Gold)
+│
+├── 🖼️ Azure_Architecture_Diagram.svg
+├── 🖼️ Azure_DataFactory_Photo.svg
+└── 📄 README.md
+
+
+🗄️ ADLS Storage Structure
+medallion/                        ← ADLS container
+├── raw/                          ← Original 4 JSON source files
+│   ├── customers.json
+│   ├── products.json
+│   ├── transactions.json
+│   └── stores.json
+│
+├── bronze/                       ← Raw files copied here by ADF
+│   ├── customers.json
+│   ├── products.json
+│   ├── transactions.json
+│   └── stores.json
+│
+├── silver/                       ← Cleaned Delta tables (PySpark)
+│   ├── customers/
+│   ├── products/
+│   ├── transactions/
+│   └── stores/
+│
+└── gold/                         ← Business report Delta tables
+    ├── sales_by_category/
+    ├── sales_by_region/
+    └── customer_lifetime_value/
+
+
+    ⚙️ Detailed Pipeline Steps
+Step 1 — 📥 Data Ingestion (ADF → Bronze)
+
+Action: ADF Copy Activity extracts all raw JSON files from raw/ folder
+Sink: Loads them directly into the bronze/ folder in ADLS
+Goal: Establish an immutable record of the raw source data
+
+Step 2 — 🥈 Transformation & Cleansing (Bronze → Silver)
+Action: ETL_Notebook.ipynb runs PySpark transformations:
+
+✅ Reads raw data from the Bronze layer
+✅ Handles null values (age, email, stock_quantity, rating, discount)
+✅ Casts all columns to correct data types (IntegerType, DoubleType, DateType)
+✅ Standardizes strings — trims whitespace, uppercases membership & region
+✅ Removes duplicate records by primary key
+✅ Writes cleaned data to Silver as Delta Lake tables
+
+Step 3 — 🥇 Business Logic & Aggregation (Silver → Gold)
+Action: Notebook continues with business aggregation:
+
+✅ Reads all 4 cleaned Silver tables
+✅ Joins transactions + products + customers + stores
+✅ Calculates revenue: (price × quantity) − discount
+✅ Produces 3 Gold report tables (see below)
+✅ Writes final data to Gold as Delta Lake tables
+
+Step 4 — 📊 Data Consumption
+
+Result: Gold layer Delta tables are analytics-ready
+Downstream tools like Power BI can connect directly to curated tables
+
+
+📊 Gold Layer Output Tables
+1️⃣ Sales by Category
+category | total_transactions | total_units_sold | total_revenue | avg_revenue_per_sale
+2️⃣ Sales by Region
+region | store_name | total_transactions | total_revenue
+3️⃣ Customer Lifetime Value
+membership | total_orders | total_revenue | avg_order_value
+
+🔧 How to Run
+bash# 1. Clone this repository
+git clone https://github.com/<your-username>/Azure-ETL-Pipeline-ADF-Databricks.git
+
+# 2. Upload data files to ADLS
+#    Go to Azure Portal → learningetl → medallion → raw/
+#    Upload all 4 JSON files from data/ folder
+
+# 3. Open notebook in Google Colab
+#    Upload notebooks/ETL_Notebook.ipynb to Google Colab
+
+# 4. Update Cell 1 in the notebook
+STORAGE_ACCOUNT = "learningetl"
+ACCESS_KEY = "<your-access-key>"
+
+# 5. Run all cells — Bronze → Silver → Gold tables written to ADLS
+
+# 6. Trigger ADF pipeline
+#    Azure Portal → ADF Studio → PL_ETL_Medallion_Pipeline → Debug
