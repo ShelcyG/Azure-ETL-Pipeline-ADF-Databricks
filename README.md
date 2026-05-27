@@ -1,4 +1,6 @@
 🚀 Azure End-to-End ETL Pipeline — ADF + Databricks
+
+
 💡 Project Goal
 This repository implements a modern, scalable, end-to-end Data Engineering Pipeline using core Microsoft Azure services. The goal is to ingest raw data, transform it using powerful Spark processing, and deliver analytics-ready data layers for business intelligence (BI) and machine learning (ML) consumption.
 This project focuses on production-style patterns including automated orchestration, implementation of the Medallion Architecture, and scalable PySpark transformations.
@@ -7,6 +9,8 @@ The pipeline is built on an ELT (Extract, Load, Transform) framework, leveraging
 ComponentResponsibilityRole⚙️ Azure Data Factory (ADF)Orchestration & Data MovementSequences and schedules the workflow — controls data ingestion via Copy Activity🔥 PySpark (Google Colab)Scalable Data TransformationRuns complex transformation logic across Bronze → Silver → Gold layers🗄️ Azure Data Lake Storage (ADLS)Data Lakehouse StorageProvides tiered, scalable storage for all Medallion layers🔷 Delta LakeReliability & ACID PropertiesBrings ACID transactions and versioning to the data lake
 
 📌 Note: Due to Azure student subscription limitations, the ETL notebook runs in Google Colab instead of Azure Databricks. The ADF pipeline handles the Copy Activity (raw → bronze). PySpark transformations (Silver & Gold layers) run via ETL_Notebook.ipynb in Google Colab connected directly to ADLS.
+
+
 🥇 Medallion Architecture
 Data is segregated into three distinct layers within Azure Data Lake to ensure quality, traceability, and governance:
 LayerStatePurpose🥉 BronzeRaw DataStores data as-is after ingestion. Provides an immutable historical record🥈 SilverCleaned & ConformedData is cleansed, standardized, deduplicated. Ready for exploration🥇 GoldCurated & AggregatedAggregated and modeled data optimized for BI reporting and ML training
