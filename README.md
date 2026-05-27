@@ -5,7 +5,9 @@
 
 This repository implements a modern, scalable, end-to-end Data Engineering Pipeline using core Microsoft Azure services. The goal is to ingest raw data, transform it using powerful Spark processing, and deliver analytics-ready data layers for business intelligence (BI) and machine learning (ML) consumption.
 This project focuses on production-style patterns including automated orchestration, implementation of the Medallion Architecture, and scalable PySpark transformations.
-☁️ Architectural Overview
+
+
+**☁️ Architectural Overview**
 The pipeline is built on an ELT (Extract, Load, Transform) framework, leveraging the strengths of each Azure service:
 ComponentResponsibilityRole⚙️ Azure Data Factory (ADF)Orchestration & Data MovementSequences and schedules the workflow — controls data ingestion via Copy Activity🔥 PySpark (Google Colab)Scalable Data TransformationRuns complex transformation logic across Bronze → Silver → Gold layers🗄️ Azure Data Lake Storage (ADLS)Data Lakehouse StorageProvides tiered, scalable storage for all Medallion layers🔷 Delta LakeReliability & ACID PropertiesBrings ACID transactions and versioning to the data lake
 
