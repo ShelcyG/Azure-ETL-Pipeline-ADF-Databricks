@@ -52,21 +52,7 @@ The pipeline is built on an **ELT (Extract, Load, Transform)** framework, levera
 
 ---
 
-## 📂 Repository Structure
-Azure-ETL-Pipeline-ADF-Databricks/
-│
-├── 📁 data/
-│   ├── customers.json          ← Customer profiles with membership tiers
-│   ├── products.json           ← Product catalog with categories & pricing
-│   ├── transactions.json       ← Sales transactions linking all entities
-│   └── stores.json             ← Store locations across US regions
-│
-├── 📁 notebooks/
-│   └── ETL_Notebook.ipynb      ← Full PySpark ETL logic (Bronze→Silver→Gold)
-│
-├── 🖼️ Azure_Architecture_Diagram.svg
-├── 🖼️ Azure_DataFactory_Photo.svg
-└── 📄 README.md
+
 
 
 🗄️ ADLS Storage Structure
