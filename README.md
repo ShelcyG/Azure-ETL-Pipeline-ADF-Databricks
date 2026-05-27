@@ -52,36 +52,8 @@ The pipeline is built on an **ELT (Extract, Load, Transform)** framework, levera
 
 ---
 
+⚙️ Detailed Pipeline Steps
 
-
-
-🗄️ ADLS Storage Structure
-medallion/                        ← ADLS container
-├── raw/                          ← Original 4 JSON source files
-│   ├── customers.json
-│   ├── products.json
-│   ├── transactions.json
-│   └── stores.json
-│
-├── bronze/                       ← Raw files copied here by ADF
-│   ├── customers.json
-│   ├── products.json
-│   ├── transactions.json
-│   └── stores.json
-│
-├── silver/                       ← Cleaned Delta tables (PySpark)
-│   ├── customers/
-│   ├── products/
-│   ├── transactions/
-│   └── stores/
-│
-└── gold/                         ← Business report Delta tables
-    ├── sales_by_category/
-    ├── sales_by_region/
-    └── customer_lifetime_value/
-
-
-    ⚙️ Detailed Pipeline Steps
 Step 1 — 📥 Data Ingestion (ADF → Bronze)
 
 Action: ADF Copy Activity extracts all raw JSON files from raw/ folder
@@ -121,22 +93,3 @@ region | store_name | total_transactions | total_revenue
 3️⃣ Customer Lifetime Value
 membership | total_orders | total_revenue | avg_order_value
 
-🔧 How to Run
-bash# 1. Clone this repository
-git clone https://github.com/<your-username>/Azure-ETL-Pipeline-ADF-Databricks.git
-
-# 2. Upload data files to ADLS
-#    Go to Azure Portal → learningetl → medallion → raw/
-#    Upload all 4 JSON files from data/ folder
-
-# 3. Open notebook in Google Colab
-#    Upload notebooks/ETL_Notebook.ipynb to Google Colab
-
-# 4. Update Cell 1 in the notebook
-STORAGE_ACCOUNT = "learningetl"
-ACCESS_KEY = "<your-access-key>"
-
-# 5. Run all cells — Bronze → Silver → Gold tables written to ADLS
-
-# 6. Trigger ADF pipeline
-#    Azure Portal → ADF Studio → PL_ETL_Medallion_Pipeline → Debug
