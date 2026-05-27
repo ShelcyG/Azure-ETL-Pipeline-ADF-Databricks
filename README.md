@@ -1,7 +1,7 @@
 🚀 Azure End-to-End ETL Pipeline — ADF + Databricks
 
 
-##💡 Project Goal
+💡 **Project Goal**
 
 This repository implements a modern, scalable, end-to-end Data Engineering Pipeline using core Microsoft Azure services. The goal is to ingest raw data, transform it using powerful Spark processing, and deliver analytics-ready data layers for business intelligence (BI) and machine learning (ML) consumption.
 This project focuses on production-style patterns including automated orchestration, implementation of the Medallion Architecture, and scalable PySpark transformations.
